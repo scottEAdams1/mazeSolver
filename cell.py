@@ -24,18 +24,26 @@ class Cell:
         self._y2 = y2
         ##Draws individual walls of cells
         if self.__win != None:
+            line = Line(Point(self._x1, self._y1), Point(self._x1, self._y2))
             if self.has_left_wall == True:
-                line = Line(Point(self._x1, self._y1), Point(self._x1, self._y2))
                 self.__win.draw_line(line, "black")
+            else:
+                self.__win.draw_line(line, "light blue")
+            line = Line(Point(self._x2, self._y1), Point(self._x2, self._y2))
             if self.has_right_wall == True:
-                line = Line(Point(self._x2, self._y1), Point(self._x2, self._y2))
                 self.__win.draw_line(line, "black")
+            else:
+                self.__win.draw_line(line, "light blue")
+            line = Line(Point(self._x1, self._y1), Point(self._x2, self._y1))
             if self.has_top_wall == True:
-                line = Line(Point(self._x1, self._y1), Point(self._x2, self._y1))
                 self.__win.draw_line(line, "black")
+            else:
+                self.__win.draw_line(line, "light blue")
+            line = Line(Point(self._x1, self._y2), Point(self._x2, self._y2))
             if self.has_bottom_wall == True:
-                line = Line(Point(self._x1, self._y2), Point(self._x2, self._y2))
                 self.__win.draw_line(line, "black")
+            else:
+                self.__win.draw_line(line, "light blue")
 
     ##Draw a line between the centre of two cells
     def draw_move(self, to_cell, undo = False):
