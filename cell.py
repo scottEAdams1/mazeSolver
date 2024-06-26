@@ -2,7 +2,7 @@ from window import Window
 from line import Point, Line
 
 class Cell:
-    def __init__(self, window=None):
+    def __init__(self, window = None):
         ##Which wall exist
         self.has_left_wall = True
         self.has_right_wall = True
@@ -14,6 +14,7 @@ class Cell:
         self._y1 = None
         self._y2 = None
         self.__win = window
+        self._visited = False
 
     ##Draw a single cell
     def draw(self, x1, y1, x2, y2):
