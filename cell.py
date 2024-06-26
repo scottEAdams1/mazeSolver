@@ -2,7 +2,7 @@ from window import Window
 from line import Point, Line
 
 class Cell:
-    def __init__(self, window):
+    def __init__(self, window=None):
         ##Which wall exist
         self.has_left_wall = True
         self.has_right_wall = True
@@ -23,18 +23,19 @@ class Cell:
         self._x2 = x2
         self._y2 = y2
         ##Draws individual walls of cells
-        if self.has_left_wall == True:
-            line = Line(Point(self._x1, self._y1), Point(self._x1, self._y2))
-            self.__win.draw_line(line, "black")
-        if self.has_right_wall == True:
-            line = Line(Point(self._x2, self._y1), Point(self._x2, self._y2))
-            self.__win.draw_line(line, "black")
-        if self.has_top_wall == True:
-            line = Line(Point(self._x1, self._y1), Point(self._x2, self._y1))
-            self.__win.draw_line(line, "black")
-        if self.has_bottom_wall == True:
-            line = Line(Point(self._x1, self._y2), Point(self._x2, self._y2))
-            self.__win.draw_line(line, "black")
+        if self.__win != None:
+            if self.has_left_wall == True:
+                line = Line(Point(self._x1, self._y1), Point(self._x1, self._y2))
+                self.__win.draw_line(line, "black")
+            if self.has_right_wall == True:
+                line = Line(Point(self._x2, self._y1), Point(self._x2, self._y2))
+                self.__win.draw_line(line, "black")
+            if self.has_top_wall == True:
+                line = Line(Point(self._x1, self._y1), Point(self._x2, self._y1))
+                self.__win.draw_line(line, "black")
+            if self.has_bottom_wall == True:
+                line = Line(Point(self._x1, self._y2), Point(self._x2, self._y2))
+                self.__win.draw_line(line, "black")
 
     ##Draw a line between the centre of two cells
     def draw_move(self, to_cell, undo = False):
