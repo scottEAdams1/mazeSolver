@@ -1,9 +1,11 @@
 class Point:
+    ##Creates a single point
     def __init__(self, x, y):
         self.x = x
         self.y = y
     
 class Line:
+    ##Creates a single line between two points
     def __init__(self, point1, point2):
         self.point1 = point1
         self.point2 = point2

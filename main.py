@@ -8,8 +8,11 @@ def main():
     point2 = Point(599, 599)
     line = Line(point1, point2)
     #win.draw_line(line, "red")
-    cell = Cell(win)
-    cell.draw(0, 0, 50, 50)
+    cell1 = Cell(win)
+    cell2 = Cell(win)
+    cell1.draw(1, 1, 50, 50)
+    cell2.draw(51, 1, 101, 50)
+    cell1.draw_move(cell2, True)
     win.wait_for_close()
 
 main()
